@@ -3,19 +3,20 @@ package com.learn.simple_text_app
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.learn.simple_text_app.ui.theme.SimpletextappTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,15 +43,27 @@ fun GreetingText(
     from: String,
     modifier: Modifier = Modifier
 ){
-    Column(modifier = modifier) {
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Center
+    ) {
         Text(
             text = message,
             fontSize = 100.sp,
-            lineHeight = 116.sp
+            lineHeight = 116.sp,
+            textAlign = TextAlign.Center,
+            modifier = modifier
+                .padding(bottom = 16.dp)
         )
         Text(
-            text = "from $from",
-            fontSize = 36.sp
+            text = from,
+            fontSize = 36.sp,
+            textAlign = TextAlign.Right,
+            modifier = modifier
+                .padding(end = 16.dp)
+                .align(Alignment.End)
         )
     }
 }
@@ -59,8 +72,8 @@ fun GreetingText(
 @Composable
 fun BirthdayCardPreview() {
     GreetingText(
-        message = "Happy Birthday",
-        from = "Android"
+        message = "Happy Birthday Sam!",
+        from = "From Android"
     )
 }
 
