@@ -54,8 +54,8 @@ fun GreetingText(
     ) {
         Text(
             text = message,
-            fontSize = 100.sp,
-            lineHeight = 116.sp,
+            fontSize = 90.sp,
+            lineHeight = 100.sp,
             textAlign = TextAlign.Center,
             modifier = modifier
                 .padding(bottom = 16.dp)
