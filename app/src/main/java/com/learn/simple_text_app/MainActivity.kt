@@ -30,8 +30,8 @@ class MainActivity : ComponentActivity() {
                 color = MaterialTheme.colorScheme.background
             ) {
                 GreetingImage(
-                    message = "Happy Birthday",
-                    from = "Android"
+                    message = getString(R.string.happy_birthday_text),
+                    from = getString(R.string.signature_text)
                 )
             }
         }
@@ -79,7 +79,8 @@ fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) 
             contentDescription = "Android Party",
             modifier = modifier
                 .fillMaxSize(),
-            contentScale = ContentScale.Crop
+            contentScale = ContentScale.Crop,
+            alpha = 0.5F
         )
         GreetingText(
             message = message,
